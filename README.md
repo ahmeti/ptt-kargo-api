@@ -5,11 +5,21 @@
 composer require "ahmeti/ptt-kargo-api:@dev"
 ```
 
+## Ortam Değişkenleri
+```code
+PTT_ACT_ID=
+PTT_ACT_PASS=
+```
+
 ## 01. Gönderi Hareket İşlem Tarihi Sorgu
 ```php
 <?php
 
-$pttApi = new \Ahmeti\PttKargoApi();
+# Ortam değişkenlerini tanımlamadıysanız; 
+$pttApi = new \Ahmeti\PttKargoApi\PttKargoApi($pttMusteriId, $pttMusteriSifre);
+
+# veya
+$pttApi = new \Ahmeti\PttKargoApi\PttKargoApi();
 
 $result = $pttApi->gonderiHareketIslemTarihiSorgu('2018-03-01');
 
