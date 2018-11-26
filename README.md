@@ -15,10 +15,10 @@ PTT_ACT_PASS=
 ```php
 <?php
 
-# Ortam değişkenlerini tanımlamadıysanız; 
+# Ortam değişkenlerini tanımlı değil ise;
 $pttApi = new \Ahmeti\PttKargoApi\PttKargoApi($pttMusteriId, $pttMusteriSifre);
 
-# veya
+# Ortam değişkenleri tanımlı ise;
 $pttApi = new \Ahmeti\PttKargoApi\PttKargoApi();
 
 $result = $pttApi->gonderiHareketIslemTarihiSorgu('2018-03-01');
