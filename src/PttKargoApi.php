@@ -37,6 +37,30 @@ class PttKargoApi {
         return new \SoapClient('https://pttws.ptt.gov.tr/GonderiHareketV2/services/Sorgu?wsdl', $config);
     }
 
+    public function barkodSorgu($barcode)
+    {
+        try {
+            $soap = $this->getClient();
+
+            $data = $soap->barkodSorgu([
+                'input' => [
+                    'musteri_no' => $this->actId,
+                    'sifre' => $this->actPass,
+                    'barkod' => $barcode,
+                ]
+            ]);
+
+            if(isset($data->return)){
+                return (array)$data->return;
+            }else{
+                return false;
+            }
+
+        }catch ( \SoapFault $fault){
+            return $fault;
+        }
+    }
+
     public function gonderiHareketIslemTarihiSorgu($date)
     {
         if ( ! $this->validateDate($date) ){
