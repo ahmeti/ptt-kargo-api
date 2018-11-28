@@ -32,9 +32,8 @@ $pttApi = new \Ahmeti\PttKargoApi\PttKargoApi($pttMusteriId, $pttMusteriSifre);
 $result = $pttApi->barkodSorgu('KP02168XXXXXX');
 
 if( is_array($result) ){
-
+    // Başarılı
     var_dump($result);
-
 }else{
     // Hata (SoapFault)
     var_dump($result);
