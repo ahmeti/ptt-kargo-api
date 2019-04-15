@@ -57,3 +57,61 @@ if( is_array($result) ){
     var_dump($result);
 }
 ```
+
+## 03. Ptt Veri Yükle 2
+
+API: https://pttws.ptt.gov.tr/PttVeriYukleme/services/Sorgu?wsdl
+
+```php
+<?php
+
+use Ahmeti\PttKargoApi\PttVeriYukle2;
+
+# $items = (array) Kargo Bilgileri
+
+$ptt = (new PttVeriYukle2())->kullanici('PttWs')
+    ->sifre(env('PTT_ACT_PASS'))
+    ->musteriId(env('PTT_ACT_ID'))
+    ->dosyaAdi(date('Ymd-His-').uniqid())
+    ->gonderiTur('KARGO')
+    ->gonderiTip('NORMAL');
+
+foreach ($items as $item){
+    $ptt->aAdres($item->aAdres)
+        ->agirlik($item->agirlik)
+        ->aliciAdi($item->aliciAdi)
+        ->aliciIlAdi($item->aliciIlAdi)
+        ->aliciIlceAdi($item->aliciIlceAdi)
+        ->barkodNo($item->barkodNo)
+        ->boy($item->boy)
+        ->deger_ucreti($item->deger_ucreti)
+        ->desi($item->desi)
+        ->ekhizmet($item->ek_hizmet)
+        ->en($item->en)
+        ->musteriReferansNo($item->musteriReferansNo)
+        ->odemesekli($item->odemesekli)
+        ->odeme_sart_ucreti($item->odeme_sart_ucreti)
+        ->rezerve1($item->rezerve1)
+        ->yukseklik($item->yukseklik)
+        ->ekle();
+}
+
+$result = $ptt->yukle();
+
+if( is_array($result) && $result['hataKodu'] == 1 ){
+
+    print_r($result);
+
+    foreach ($result['dongu'] as $barcode){
+        // $barcode
+    }
+
+    return true;
+
+}else{
+
+    print_r($result['aciklama']);
+
+    return false;
+}
+```
