@@ -31,6 +31,18 @@ class PttVeriYukle2 {
         }
     }
 
+    private function getClient($options = null)
+    {
+        $config = [];
+
+        if( is_array($options) ){
+            $config = array_merge($config, $options);
+        }
+
+        return new \SoapClient('https://pttws.ptt.gov.tr/PttVeriYuklemeTest/services/Sorgu?wsdl', $config);
+    }
+
+
     public function kullanici($kullanici)
     {
         $this->_kullanici = $kullanici;
@@ -185,11 +197,36 @@ class PttVeriYukle2 {
             'rezerve1' => $this->_rezerve1,
             'yukseklik' => $this->_yukseklik,
         ]);
+
+        return $this;
     }
 
     public function yukle()
     {
-        dd($this);
+        try {
+            $soap = $this->getClient();
+
+            $data = $soap->kabulEkle2([
+                'input' => [
+                    'dosyaAdi' => $this->_dosyaAdi,
+                    'gonderiTip' => $this->_gonderiTip,
+                    'gonderiTur' => $this->_gonderiTur,
+                    'kullanici' => $this->_kullanici,
+                    'musteriId' => $this->_musteriId,
+                    'sifre' => $this->_sifre,
+                    'dongu' => $this->items
+                ]
+            ]);
+
+            if(isset($data->return)){
+                return (array)$data->return;
+            }else{
+                return false;
+            }
+
+        }catch ( \SoapFault $fault){
+            return $fault;
+        }
     }
 
 }

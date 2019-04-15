@@ -21,6 +21,29 @@ class PttKargoApi {
         }
     }
 
+    public function getBarcode($barkodIncrementId)
+    {
+        $carpanSplit = [1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3];
+        $barkodSplit = str_split($barkodIncrementId);
+
+        if( count($barkodSplit) != 12 ){
+            return false;
+        }
+
+        $sum = 0;
+
+        for ($i=0; $i < 12; $i++){
+            $sum += $carpanSplit[$i] * $barkodSplit[$i];
+        }
+
+        $nearest = (int)ceil($sum / 10) * 10;
+        $checkDigit = $nearest - $sum;
+
+        array_push($barkodSplit, $checkDigit);
+
+        return implode('', $barkodSplit);
+    }
+
     private function validateDate($date, $format = 'Y-m-d'){
         $d = \DateTime::createFromFormat($format, $date);
         return $d && $d->format($format) == $date;
