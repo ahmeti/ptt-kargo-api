@@ -39,7 +39,7 @@ class PttVeriYukle2 {
             $config = array_merge($config, $options);
         }
 
-        return new \SoapClient('https://pttws.ptt.gov.tr/PttVeriYuklemeTest/services/Sorgu?wsdl', $config);
+        return new \SoapClient('https://pttws.ptt.gov.tr/PttVeriYukleme/services/Sorgu?wsdl', $config);
     }
 
 
