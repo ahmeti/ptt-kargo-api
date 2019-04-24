@@ -9,8 +9,8 @@ class PttVeriYukle2 {
     private $_musteriId, $_dosyaAdi, $_gonderiTur, $_gonderiTip;
 
     private $_aAdres, $_agirlik, $_aliciAdi, $_aliciIlAdi, $_aliciIlceAdi,
-            $_barkodNo, $_boy, $_deger_ucreti, $_desi, $_ekhizmet, $_en,
-            $_musteriReferansNo, $_odemesekli, $_odeme_sart_ucreti,
+            $_aliciSms, $_barkodNo, $_boy, $_deger_ucreti, $_desi, $_ekhizmet, 
+            $_en, $_musteriReferansNo, $_odemesekli, $_odeme_sart_ucreti,
             $_rezerve1, $_yukseklik;
 
     private $items = [];
@@ -111,6 +111,12 @@ class PttVeriYukle2 {
         return $this;
     }
 
+    public function aliciSms($aliciSms)
+    {
+        $this->_aliciSms = $aliciSms;
+        return $this;
+    }
+
     public function barkodNo($barkodNo)
     {
         $this->_barkodNo = $barkodNo;
@@ -185,6 +191,7 @@ class PttVeriYukle2 {
             'aliciAdi' => $this->_aliciAdi,
             'aliciIlAdi' => $this->_aliciIlAdi,
             'aliciIlceAdi' => $this->_aliciIlceAdi,
+            'aliciSms' => $this->_aliciSms,
             'barkodNo' => $this->_barkodNo,
             'boy' => $this->_boy,
             'deger_ucreti' => $this->_deger_ucreti,
