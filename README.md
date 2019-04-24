@@ -2,6 +2,7 @@
 PTT Web Servisini kullanabilmek için PTT İl Müdürlüklerinden, Müşteri ID ve Müşteri şifre bilgilerinizi öğrenebilirsiniz.
 
 ## Composer ile Yükleme
+https://packagist.org/packages/ahmeti/ptt-kargo-api
 ```code
 composer require "ahmeti/ptt-kargo-api:@dev"
 ```
