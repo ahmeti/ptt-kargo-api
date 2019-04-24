@@ -71,8 +71,6 @@ class PttBarkodVeriSil {
                 ]
             ]);
 
-            dd($data);
-
             if(isset($data->return)){
                 return (array)$data->return;
             }else{
