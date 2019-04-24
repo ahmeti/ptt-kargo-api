@@ -2,6 +2,7 @@
 PTT Web Servisini kullanabilmek için PTT İl Müdürlüklerinden, Müşteri ID ve Müşteri şifre bilgilerinizi öğrenebilirsiniz.
 
 ## Composer ile Yükleme
+https://packagist.org/packages/ahmeti/ptt-kargo-api
 ```code
 composer require "ahmeti/ptt-kargo-api:@dev"
 ```
@@ -111,6 +112,38 @@ if( is_array($result) && $result['hataKodu'] == 1 ){
 }else{
 
     print_r($result['aciklama']);
+
+    return false;
+}
+```
+
+## 04. Ptt Barkod Veri Sil
+Oluşturduğumuz barkodu silmek için aşağıdaki metodu kullanabilirsiniz.
+
+API: https://pttws.ptt.gov.tr/PttVeriYukleme/services/Sorgu?wsdl
+
+```php
+<?php
+
+use Ahmeti\PttKargoApi\PttBarkodVeriSil;
+
+$ptt = new PttBarkodVeriSil();
+
+$result = $ptt->barcode('BARKOD NO')
+    ->dosyaAdi('BORKODU İLK KAYDETTİĞİNİZ DOSYA ADI')
+    ->musteriId('XXX_Musteri_Id')
+    ->sifre('XXX_Sifre')
+    ->sil();
+
+if( is_array($result) && $result['hataKodu'] == 1 ){
+
+    print_r($result);
+
+    return true;
+
+}else{
+
+    print_r($result);
 
     return false;
 }
