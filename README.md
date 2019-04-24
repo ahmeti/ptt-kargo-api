@@ -116,3 +116,35 @@ if( is_array($result) && $result['hataKodu'] == 1 ){
     return false;
 }
 ```
+
+## 04. Ptt Barkod Veri Sil
+Oluşturduğumuz barkodu silmek için aşağıdaki metodu kullanabilirsiniz.
+
+API: https://pttws.ptt.gov.tr/PttVeriYukleme/services/Sorgu?wsdl
+
+```php
+<?php
+
+use Ahmeti\PttKargoApi\PttBarkodVeriSil;
+
+$ptt = new PttBarkodVeriSil();
+
+$result = $ptt->barcode('BARKOD NO')
+    ->dosyaAdi('BORKODU İLK KAYDETTİĞİNİZ DOSYA ADI')
+    ->musteriId('XXX_Musteri_Id')
+    ->sifre('XXX_Sifre')
+    ->sil();
+
+if( is_array($result) && $result['hataKodu'] == 1 ){
+
+    print_r($result);
+
+    return true;
+
+}else{
+
+    print_r($result);
+
+    return false;
+}
+```
