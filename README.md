@@ -83,6 +83,7 @@ foreach ($items as $item){
         ->aliciAdi($item->aliciAdi)
         ->aliciIlAdi($item->aliciIlAdi)
         ->aliciIlceAdi($item->aliciIlceAdi)
+        ->aliciSms($item->aliciSms)
         ->barkodNo($item->barkodNo)
         ->boy($item->boy)
         ->deger_ucreti($item->deger_ucreti)
