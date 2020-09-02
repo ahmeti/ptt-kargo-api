@@ -1,6 +1,36 @@
 # PTT Kargo Api (PHP)
 PTT Web Servisini kullanabilmek için PTT İl Müdürlüklerinden, Müşteri ID ve Müşteri şifre bilgilerinizi öğrenebilirsiniz.
 
+## PTT Web Servis Dokümanları
+https://github.com/ahmeti/ptt-kargo-api/blob/master/01_PTT_Entegrasyon_Giris.pdf
+
+https://github.com/ahmeti/ptt-kargo-api/blob/master/02_PTT_Veri_Yukleme_Web_Servisi.pdf
+
+## PTT Ek Hizmet Kodları
+```
+AA - ADRESTEN ALMA
+ST - ŞEHİR İÇİ TESLİM
+DK - DEĞER KONULMUŞ
+OS - ÖDEME ŞARTLI
+AH - ALMA HABERLİ
+AK - ALICININ KENDİNE TESLİM
+TA - TELEFONLA BİLGİLENDİRME
+KT - KONTROLLU TESLIM
+OU - ÖZEL ULAK
+UA - ÜCRETİ ALICIDAN TAHSİL
+GD - GİDİŞ-DÖNÜŞ
+SV - SERVİS
+RP - RESMİ PUL
+UO - ÜCRET ÖDEME MAKİNESİ
+VI - KREDİ KARTI
+PC - POSTA ÇEKİ HESABI
+DN - BARKOD DÖNÜŞLÜ
+PI - PTT ISYERINE TESLIM
+AT - ADLI TIP
+PR - POSTRESTANT
+SB - SMS ILE BILGILENDIRME
+```
+
 ## Composer ile Yükleme
 https://packagist.org/packages/ahmeti/ptt-kargo-api
 ```code
