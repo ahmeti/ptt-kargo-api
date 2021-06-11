@@ -38,7 +38,7 @@ SB - SMS ILE BILGILENDIRME
 | 1                | Kabul Edildi                                                          | 0      | KABUL                | 1000         |
 | 701              | Kayıt Edildi                                                          | 0      | KABUL                | 1000         |
 
-Listenin tamamını görmek için [03_PTT_Durum_Kodlari.md](https://github.com/ahmeti/ptt-kargo-api/edit/master/03_PTT_Durum_Kodlari.md) 
+Listenin tamamını görmek için [03_PTT_Durum_Kodlari.md](https://github.com/ahmeti/ptt-kargo-api/blob/master/03_PTT_Durum_Kodlari.md) 
 
 Durum kodları listesi [Arif Bey'in](https://github.com/arifw3) desteği ile hazırlanmıştır.
 
